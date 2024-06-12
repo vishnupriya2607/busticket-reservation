@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+</head>
+<body>
+    <h1>Booking Confirmation</h1>
+    <p>Your booking has been confirmed. Here are your ticket details:</p>
+    <ul>
+        {% for ticket_number in ticket_numbers %}
+        <li><a href="{{ url_for('view_ticket', ticket_number=ticket_number) }}">Ticket Number: {{ ticket_number }}</a></li>
+        {% endfor %}
+    </ul>
+    <p>Click on the ticket number to view or download your ticket.</p>
+</body>
+</html>

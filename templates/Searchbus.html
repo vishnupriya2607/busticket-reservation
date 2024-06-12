@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Booking Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-color: rgba(96, 94, 94, 0.9);
+        }
+
+        * {box-sizing: border-box;}
+        .mySlides {display: none;}
+        img {vertical-align: middle;}
+
+        .slideshow-container {
+            padding-top: 0.8px;
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        .dashboard {
+            background-color: rgba(96, 94, 94, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .dashboard h1 {
+            margin: 0 0 20px 0;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .dashboard label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .dashboard select, .dashboard input[type="date"], .dashboard input[type="text"], .dashboard button {
+            padding: 20px;
+            font-size: 20px;
+            border-radius: 15px;
+            border: 1px solid #ccc;
+            margin: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .dashboard button {
+            background-color: #455ea2;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            height: auto;
+        }
+
+        .dashboard button:hover {
+            background-color: #3290ed;
+        }
+
+        .welcome {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            color: rgb(51, 48, 232);
+            font-size: 35px;
+            font-family: "Sofia", sans-serif;
+            font-size: 45px;
+        }
+
+        .dashboard pre {
+            font-style: italic;
+            font-weight: lighter;
+            font-family: "Sofia", sans-serif;
+            font-size: 30px;
+            text-shadow: 3px 3px 3px #ababab;
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        @media (max-width: 1200px) {
+            .dashboard {
+                padding: 15px;
+            }
+            .dashboard h1 {
+                font-size: 22px;
+            }
+            .dashboard select, .dashboard input[type="date"], .dashboard input[type="text"], .dashboard button {
+                padding: 18px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .dashboard form {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .dashboard {
+                padding: 10px;
+            }
+            .dashboard h1 {
+                font-size: 20px;
+            }
+            .dashboard select, .dashboard input[type="date"], .dashboard input[type="text"], .dashboard button {
+                padding: 16px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard form {
+                grid-template-columns: 1fr;
+            }
+            .dashboard h1 {
+                font-size: 18px;
+            }
+            .dashboard select, .dashboard input[type="date"], .dashboard input[type="text"], .dashboard button {
+                padding: 14px;
+                font-size: 14px;
+            }
+            .welcome {
+                font-size: 35px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .dashboard {
+                padding: 5px;
+            }
+            .dashboard h1 {
+                font-size: 16px;
+            }
+            .dashboard select, .dashboard input[type="date"], .dashboard input[type="text"], .dashboard button {
+                padding: 12px;
+                font-size: 12px;
+            }
+            .welcome {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="welcome">
+            <marquee class="font-effect-shadow-multiple">Welcome to JourneyJoy Bus ticket reservation</marquee>
+        </div>
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="/static/bus1.png" alt="Bus Image" style="width:100%">
+                <div class="text">Enjoy your travel</div>
+            </div>
+            <div class="mySlides fade">
+                <img src="/static/bus2.png" alt="Bus Image" style="width:100%">
+                <div class="text">The journey is priceless</div>
+            </div>
+            <div class="mySlides fade">
+                <img src="/static/bus3.png" alt="Bus Image" style="width:100%">
+                <div class="text">Travel with comfort</div>
+            </div>
+            <br>
+        </div>
+        <div style="text-align:center">
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+            <br><br> 
+        </div>
+        <div>
+            <button type="button" onclick="window.location.href='/dashboard'">Search Your Tickets here</button>
+            <a href="{{ url_for('delete_ticket') }}">Delete Ticket</a>
+        </div>
+        <pre>Hello Travelers! We promise to give you the best experience in your travel.
+Enjoy every minute in travel and we will provide you all necessary things.
+                    Enjoy every trip with us.
+        </pre>
+    </div>
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
+    <h1></h1>
+</body>
+</html>

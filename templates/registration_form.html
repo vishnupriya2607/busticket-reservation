@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #dedee1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(63, 75, 239, 0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            font-family: "SF Pro";
+            border: none;
+            outline: none;
+            background: none;
+            font-size: 18px;
+            color: #555;
+            padding: 15px 5px 10px 20px;
+            box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+            border-radius: 20px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: rgba(37, 38, 50, 0.9);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #11345a;
+        }
+        footer {
+            margin-top: 120px;
+            text-align: center;
+            padding: 1rem 0;
+            width: 100%;
+            font-size: 1.2rem;
+            color: #f2eaea;
+            font-style: italic;
+            font-weight: lighter;
+            font-family: "Sofia", sans-serif;
+            font-size: 30px;
+            
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bus Booking System</h1>
+    </header>
+    <h1>Booking for Bus {{ bus_id }} - Seats {{ seats | join(', ') }}</h1>
+    <form action="/confirm_booking" method="post">
+        <input type="hidden" name="bus_id" value="{{ bus_id }}">
+        {% for seat in seats %}
+            <h3>Details for Seat {{ seat }}</h3>
+            <div class="form-group">
+                <label for="name_{{ seat }}">Name:</label>
+                <input type="text" id="name_{{ seat }}" name="name_{{ seat }}" required>
+            </div>
+            <div class="form-group">
+                <label for="age_{{ seat }}">Age:</label>
+                <input type="number" id="age_{{ seat }}" name="age_{{ seat }}" required>
+            </div>
+            <div class="form-group">
+                <label for="gender_{{ seat }}">Gender:</label>
+                <select id="gender_{{ seat }}" name="gender_{{ seat }}" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        {% endfor %}
+        <div class="form-group">
+            <button type="submit">Confirm Booking</button>
+        </div>
+    </form>
+    <footer>
+        <h4>&copy; JourneyJoy Busticket Reservation 2024</h4>
+    </footer>
+</body>
+</html>

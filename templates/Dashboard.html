@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Booking System</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bus-container {
+            text-align: center;
+        }
+
+        .deck {
+            margin: 1em 0;
+        }
+
+        .seat {
+            margin: 0.5em;
+            padding: 0.5em 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .seat:hover {
+            background-color: #f0f0f0;
+        }
+
+        .seat:active {
+            transform: scale(0.95);
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            margin-top: 1em;
+        }
+
+        .legend div {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+
+        .available {
+            width: 1em;
+            height: 1em;
+            background-color: #00ff00;
+            display: inline-block;
+        }
+
+        .unavailable {
+            width: 1em;
+            height: 1em;
+            background-color: #808080;
+            display: inline-block;
+        }
+
+        .female {
+            width: 1em;
+            height: 1em;
+            background-color: #ff69b4;
+            display: inline-block;
+        }
+
+        .clicked {
+            transform: scale(0.95);
+            transition: transform 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bus Booking System</h1>
+        </header>
+        <main>
+            <div class="bus-container">
+                <h2>Vellore Express - AC</h2>
+                <div class="deck">
+                    <h3>Lower Deck</h3>
+                    <button class="seat">19B</button>
+                    <button class="seat">1A</button>
+                    <button class="seat">1B</button>
+                    <button class="seat">2A</button>
+                </div>
+                <div class="deck">
+                    <h3>Upper Deck</h3>
+                    <button class="seat">19B</button>
+                    <button class="seat">1A</button>
+                    <button class="seat">1B</button>
+                    <button class="seat">2A</button>
+                </div>
+                <div class="legend">
+                    <div><span class="available"></span> Available</div>
+                    <div><span class="unavailable"></span> Unavailable</div>
+                    <div><span class="female"></span> Female</div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2024 Bus Booking System</p>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const seats = document.querySelectorAll('.seat');
+
+            seats.forEach(seat => {
+                seat.addEventListener('click', function () {
+                    seat.classList.add('clicked');
+                    setTimeout(() => seat.classList.remove('clicked'), 200);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
